@@ -1,47 +1,66 @@
-import { FaHome, FaListAlt, FaUsers, FaPlus } from "react-icons/fa";
+import React from 'react';
 
-export default function Sidebar() {
-    return (
-        <div id="sidebar" className="flex min-h-screen w-90 flex-col bg-white p-10 shadow-lg">
-            {/* Logo */}
-            <div id="sidebar-logo" className="flex flex-col">
-                <span id="logo-title" className="font-poppins text-[48px] text-gray-900 leading-tight">
-                    Sedap <b id="logo-dot" className="text-hijau">.</b>
-                </span>
-                <span id="logo-subtitle" className="font-semibold text-gray-400">Modern Admin Dashboard</span>
-            </div>
+const Sidebar = () => {
+  const menuItems = [
+    { name: 'Dashboard', icon: '📊', active: true },
+    { name: 'Inventory', icon: '📦' },
+    { name: 'Reports', icon: '📈' },
+    { name: 'Configuration', icon: '⚙️' },
+    { name: 'Contact Management', icon: '👥' },
+    { name: 'Notifications', icon: '🔔', badge: '01' },
+    { name: 'Chat with Visitors', icon: '💬' },
+  ];
 
-            {/* List Menu */}
-            <div id="sidebar-menu" className="mt-10">
-                <ul id="menu-list" className="space-y-3">
-                    <li className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-100 transition-all">
-                        <FaHome className="mr-4 text-xl" /> Dashboard
-                    </li>
-                    <li className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-100 transition-all">
-                        <FaListAlt className="mr-4 text-xl" /> Orders
-                    </li>
-                    <li className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-100 transition-all">
-                        <FaUsers className="mr-4 text-xl" /> Customers
-                    </li>
-                </ul>
-            </div>
+  return (
+    <aside className="w-72 bg-[#1E293B] text-slate-300 flex flex-col h-screen sticky top-0">
+      {/* BRAND NAME */}
+      <div className="p-6 flex items-center gap-3">
+        <div className="bg-yellow-400 p-2 rounded-lg text-xl">🛒</div>
+        <h1 className="text-xl font-bold text-white tracking-tight">Apotek Keluarga 25</h1>
+      </div>
 
-            {/* Footer */}
-            <div id="sidebar-footer" className="mt-auto">
-                <div id="footer-card" className="bg-hijau px-4 py-6 rounded-3xl shadow-lg mb-10 flex flex-col relative overflow-hidden">
-                    <div id="footer-text" className="text-white text-sm z-10">
-                        <p className="w-2/3">Please organize your menus through button below!</p>
-                        <div id="add-menu-button" className="flex justify-center items-center p-2 mt-3 bg-white rounded-md space-x-2 cursor-pointer">
-                            <span className="text-gray-600 flex items-center font-bold text-xs">
-                                <FaPlus className="mr-2" /> Add Menus
-                            </span>
-                        </div>
-                    </div>
-                    <img id="footer-avatar" src="https://avatar.iran.liara.run/public/28" className="w-20 absolute -right-2 -top-2 opacity-50" />
-                </div>
-                <span id="footer-brand" className="font-bold text-gray-400 block">Sedap Restaurant Admin</span>
-                <p id="footer-copyright" className="font-light text-gray-400 text-xs mt-1">&copy; 2025 All Right Reserved</p>
+      {/* USER PROFILE CARD */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between bg-[#0F172A] p-3 rounded-xl border border-slate-700">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-slate-500 rounded-lg overflow-hidden border border-green-500">
+               <img src="https://ui-avatars.com/api/?name=Subash&background=random" alt="user" />
             </div>
+            <div>
+              <p className="text-white text-sm font-bold leading-tight">Subash</p>
+              <p className="text-yellow-500 text-[10px] uppercase font-bold italic">Super Admin</p>
+            </div>
+          </div>
+          <span className="text-slate-500 text-xs">⋮</span>
         </div>
-    );
-}
+      </div>
+
+      {/* NAV MENU */}
+      <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
+        {menuItems.map((item, index) => (
+          <div 
+            key={index} 
+            className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${item.active ? 'bg-[#00A99D] text-white shadow-lg' : 'hover:bg-slate-800'}`}
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-lg">{item.icon}</span>
+              <span className="text-sm font-medium">{item.name}</span>
+            </div>
+            {item.badge && <span className="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full">{item.badge}</span>}
+          </div>
+        ))}
+        
+        <div className="pt-4 pb-2 px-3 text-[10px] uppercase font-bold text-slate-500 tracking-widest">Settings</div>
+        <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 cursor-pointer text-sm font-medium">
+          <span>⚙️</span> Application Settings
+        </div>
+      </nav>
+
+      <div className="p-4 text-[10px] text-slate-500 border-t border-slate-800 bg-[#1E293B]">
+        Powered by Subash © 2022 v 1.1.2
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Opsional: Tambahkan font agar lebih mirip dengan gambar referensi */
+body {
+  font-family: 'Inter', sans-serif;
+  @apply antialiased text-slate-800 bg-slate-50;
+}

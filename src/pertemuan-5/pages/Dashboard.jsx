@@ -1,31 +1,71 @@
-import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
-import PageHeader from "../components/PageHeader";
+import React from 'react';
+import StatCard from '../components/StatCard';
 
-export default function Dashboard() {
-    const stats = [
-        { id: "orders", label: "Total Orders", value: "75", icon: <FaShoppingCart />, color: "bg-hijau" },
-        { id: "delivered", label: "Total Delivered", value: "175", icon: <FaTruck />, color: "bg-biru" },
-        { id: "canceled", label: "Total Canceled", value: "40", icon: <FaBan />, color: "bg-merah" },
-        { id: "revenue", label: "Total Revenue", value: "Rp.128", icon: <FaDollarSign />, color: "bg-kuning" },
-    ];
-
-    return (
-        <div id="dashboard-container" className="w-full">
-            <PageHeader />
-            
-            <div id="dashboard-grid" className="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {stats.map((item) => (
-                    <div key={item.id} className="flex items-center space-x-5 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition-shadow">
-                        <div className={`${item.color} rounded-full p-4 text-3xl text-white`}>
-                            {item.icon}
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-2xl font-bold text-gray-800">{item.value}</span>
-                            <span className="text-gray-400 text-sm font-medium">{item.label}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
+const Dashboard = () => {
+  return (
+    <div className="space-y-8">
+      <div className="flex justify-between items-center">
+        <div className="border-l-4 border-blue-500 pl-4">
+          <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Dashboard</h2>
+          <p className="text-slate-500 text-sm italic">A quick data overview of the inventory.</p>
         </div>
-    );
-}
+        <button className="bg-white border border-slate-200 shadow-sm px-5 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+          Download Report <span className="text-[10px]">▼</span>
+        </button>
+      </div>
+
+      {/* 4 KOTAK UTAMA */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard icon="➕" color="green" title="Inventory Status" value="Good" linkText="View Detailed Report" />
+        <StatCard icon="💰" color="yellow" title="Revenue : Jan 2022" value="Rs. 8,55,875" linkText="View Detailed Report" />
+        <StatCard icon="💊" color="blue" title="Medicines Available" value="298" linkText="Visit Inventory" />
+        <StatCard icon="⚠️" color="red" title="Medicine Shortage" value="01" linkText="Resolve Now" />
+      </div>
+
+      {/* GRID LAPORAN BAWAH */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Inventory Report */}
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="p-4 border-b flex justify-between items-center bg-slate-50/50">
+            <h4 className="font-bold text-slate-700">Inventory</h4>
+            <button className="text-xs font-bold text-slate-500 hover:text-blue-600 flex items-center gap-1">
+              Go to Configuration <span>»</span>
+            </button>
+          </div>
+          <div className="p-6 grid grid-cols-2 gap-6">
+            <div className="border rounded-lg p-4 bg-white shadow-inner">
+              <p className="text-3xl font-black text-slate-800">298</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Total no of Medicines</p>
+            </div>
+            <div className="border rounded-lg p-4 bg-white shadow-inner">
+              <p className="text-3xl font-black text-slate-800">24</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Medicine Groups</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Report */}
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="p-4 border-b flex justify-between items-center bg-slate-50/50">
+            <h4 className="font-bold text-slate-700">Quick Report</h4>
+            <button className="text-xs font-bold text-slate-400 flex items-center gap-1">
+              January 2022 <span>▼</span>
+            </button>
+          </div>
+          <div className="p-6 grid grid-cols-2 gap-6">
+            <div className="border rounded-lg p-4 bg-white shadow-inner">
+              <p className="text-3xl font-black text-slate-800">70,856</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Qty of Medicines Sold</p>
+            </div>
+            <div className="border rounded-lg p-4 bg-white shadow-inner">
+              <p className="text-3xl font-black text-slate-800">5,288</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Invoices Generated</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
