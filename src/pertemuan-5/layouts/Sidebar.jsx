@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({ activeTab, onTabChange }) => {
   const menuItems = [
-    { name: 'Dashboard', icon: '📊', active: true },
+    { name: 'Dashboard', icon: '📊' },
     { name: 'Inventory', icon: '📦' },
     { name: 'Reports', icon: '📈' },
     { name: 'Configuration', icon: '⚙️' },
@@ -40,7 +40,8 @@ const Sidebar = () => {
         {menuItems.map((item, index) => (
           <div 
             key={index} 
-            className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${item.active ? 'bg-[#00A99D] text-white shadow-lg' : 'hover:bg-slate-800'}`}
+            onClick={() => onTabChange(item.name)}
+            className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${activeTab === item.name ? 'bg-[#00A99D] text-white shadow-lg' : 'hover:bg-slate-800'}`}
           >
             <div className="flex items-center gap-3">
               <span className="text-lg">{item.icon}</span>
@@ -51,7 +52,10 @@ const Sidebar = () => {
         ))}
         
         <div className="pt-4 pb-2 px-3 text-[10px] uppercase font-bold text-slate-500 tracking-widest">Settings</div>
-        <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 cursor-pointer text-sm font-medium">
+        <div 
+          onClick={() => onTabChange('Application Settings')}
+          className={`flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800 cursor-pointer text-sm font-medium ${activeTab === 'Application Settings' ? 'bg-[#00A99D] text-white shadow-lg' : ''}`}
+        >
           <span>⚙️</span> Application Settings
         </div>
       </nav>

@@ -1,9 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Opsional: Tambahkan font agar lebih mirip dengan gambar referensi */
 body {
   font-family: 'Inter', sans-serif;
-  @apply antialiased text-slate-800 bg-slate-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-slate-800);
+  background-color: var(--color-slate-50);
 }

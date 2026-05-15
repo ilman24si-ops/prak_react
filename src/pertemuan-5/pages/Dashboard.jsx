@@ -1,7 +1,7 @@
 import React from 'react';
 import StatCard from '../components/StatCard';
 
-const Dashboard = () => {
+const Dashboard = ({ onNavigate }) => {
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
@@ -9,17 +9,20 @@ const Dashboard = () => {
           <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Dashboard</h2>
           <p className="text-slate-500 text-sm italic">A quick data overview of the inventory.</p>
         </div>
-        <button className="bg-white border border-slate-200 shadow-sm px-5 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+        <button 
+          onClick={() => onNavigate('Reports')}
+          className="bg-white border border-slate-200 shadow-sm px-5 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2 transition-all"
+        >
           Download Report <span className="text-[10px]">▼</span>
         </button>
       </div>
 
       {/* 4 KOTAK UTAMA */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard icon="➕" color="green" title="Inventory Status" value="Good" linkText="View Detailed Report" />
-        <StatCard icon="💰" color="yellow" title="Revenue : Jan 2022" value="Rs. 8,55,875" linkText="View Detailed Report" />
-        <StatCard icon="💊" color="blue" title="Medicines Available" value="298" linkText="Visit Inventory" />
-        <StatCard icon="⚠️" color="red" title="Medicine Shortage" value="01" linkText="Resolve Now" />
+        <StatCard icon="➕" color="green" title="Inventory Status" value="Good" linkText="View Detailed Report" onClick={() => onNavigate('Inventory')} />
+        <StatCard icon="💰" color="yellow" title="Revenue : Jan 2022" value="Rs. 8,55,875" linkText="View Detailed Report" onClick={() => onNavigate('Reports')} />
+        <StatCard icon="💊" color="blue" title="Medicines Available" value="298" linkText="Visit Inventory" onClick={() => onNavigate('Inventory')} />
+        <StatCard icon="⚠️" color="red" title="Medicine Shortage" value="01" linkText="Resolve Now" onClick={() => onNavigate('Notifications')} />
       </div>
 
       {/* GRID LAPORAN BAWAH */}
