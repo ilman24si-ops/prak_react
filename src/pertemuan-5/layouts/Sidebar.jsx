@@ -2,6 +2,7 @@ import React from 'react';
 
 const Sidebar = ({ activeTab, onTabChange }) => {
   const menuItems = [
+    { name: 'Fitur XYZ', icon: '✨' },
     { name: 'Dashboard', icon: '📊' },
     { name: 'Inventory', icon: '📦' },
     { name: 'Reports', icon: '📈' },

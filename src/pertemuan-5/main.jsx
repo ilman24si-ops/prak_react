@@ -4,6 +4,7 @@ import Sidebar from "./layouts/Sidebar";
 import Header from "./layouts/Header";
 import Dashboard from "./pages/Dashboard";
 import PagePlaceholder from "./pages/PagePlaceholder";
+import FiturXYZ from "./pages/FiturXYZ";
 import "./tailwind.css";
 import "./styles/index.css";
 
@@ -12,6 +13,8 @@ function App() {
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'Fitur XYZ':
+        return <FiturXYZ onNavigate={setActiveTab} />;
       case 'Dashboard':
         return <Dashboard onNavigate={setActiveTab} />;
       case 'Inventory':
