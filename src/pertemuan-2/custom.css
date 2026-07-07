@@ -1,0 +1,71 @@
+/* Styling untuk keseluruhan halaman - Vibes Terminal/Dark Web */
+body {
+    font-family: 'Courier New', Courier, monospace; /* Font ala kode */
+    background-color: #0a0a0a; /* Hitam pekat */
+    color: #00ff41; /* Hijau Matrix/Terminal */
+    margin: 0;
+    padding: 20px;
+    text-shadow: 0 0 5px #00ff41; /* Efek glow neon */
+}
+
+/* Container utama - Dibuat lebih kaku dan misterius */
+.card {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #121212; /* Abu-abu sangat gelap */
+    padding: 25px;
+    border: 1px solid #00ff41; /* Border tipis neon */
+    border-radius: 0; /* Menghilangkan roundness agar terlihat kaku */
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); /* Glow di sekitar kartu */
+}
+
+/* Header utama */
+h1 {
+    color: #00ff41;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border-bottom: 1px solid #00ff41;
+    padding-bottom: 10px;
+}
+
+/* Paragraf */
+p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #00ff41;
+}
+
+/* Garis pemisah - Diubah menjadi garis putus-putus */
+hr {
+    border: none;
+    border-top: 1px dashed #00ff41;
+    margin: 20px 0;
+}
+
+/* Greeting / Small text */
+small {
+    display: block;
+    font-style: normal;
+    text-align: center;
+    color: #ff0000; /* Aksen merah untuk peringatan */
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Efek tambahan: Scanline sederhana */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+}

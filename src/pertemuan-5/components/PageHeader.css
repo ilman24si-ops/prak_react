@@ -1,0 +1,154 @@
+.pageheader-container {
+    background-color: #f5f7fa;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.pageheader-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+/* Search Section */
+.search-section {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #e0e6ed;
+    padding: 10px 15px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #a8adb5;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #a8adb5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.search-button:hover {
+    color: #4a90e2;
+}
+
+/* Greeting Section */
+.greeting-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+}
+
+.globe-icon {
+    font-size: 16px;
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    color: #a8adb5;
+}
+
+.greeting-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sun-icon {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.greeting-text {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.greeting-time {
+    font-size: 12px;
+    color: #a8adb5;
+}
+
+/* Content Section */
+.pageheader-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.page-title-section {
+    flex: 1;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1d23;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.page-description {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+}
+
+.download-report-btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.download-report-btn:hover {
+    background-color: #f8f9fa;
+    border-color: #ccc;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+}
